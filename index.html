@@ -30,8 +30,7 @@ tailwind.config = {
 <style>
 body { background:#0f172a; color:#e2e8f0 }
 .badge { padding:4px 10px; background:#ffffff10; border-radius:999px; font-size:12px }
-.project-btn { padding:6px 14px; background:#ffffff10; border-radius:8px; display:flex; gap:6px; align-items:center }
-.project-btn-live { padding:6px 14px; background:#2dd4bf; color:#0f172a; border-radius:8px; display:flex; gap:6px; align-items:center; font-weight:600 }
+.btn-live { background:#2dd4bf; color:#0f172a; padding:6px 14px; border-radius:8px; font-weight:600 }
 </style>
 </head>
 
@@ -49,33 +48,45 @@ body { background:#0f172a; color:#e2e8f0 }
   </div>
 </section>
 
-<!-- ================= PROJECTS ================= -->
-<section id="projects" class="py-20 max-w-7xl mx-auto px-6">
-  <h2 class="text-3xl font-bold text-white mb-10 text-center">Featured Projects</h2>
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience" class="py-20 max-w-5xl mx-auto px-6">
+  <h2 class="text-3xl font-bold text-white mb-10">Experience & Projects</h2>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <!-- Internship -->
+  <div class="bg-card p-6 rounded-xl border border-white/10 mb-8">
+    <h3 class="text-xl font-bold text-white">AI & Data Analytics Intern</h3>
+    <p class="text-primary font-medium mb-3">Edunet Foundation (AICTE & Shell)</p>
+    <ul class="text-gray-300 text-sm space-y-1">
+      <li>• Built ML pipelines</li>
+      <li>• Developed ARIMA models</li>
+      <li>• Performed EDA & visualization</li>
+    </ul>
+  </div>
 
-    <!-- Rule-Based Chatbot -->
-    <div class="bg-card p-6 rounded-xl border border-white/10">
-      <h3 class="text-xl font-bold text-white mb-3">Rule-Based Chatbot</h3>
-      <ul class="text-gray-300 text-sm space-y-1 mb-4">
-        <li>• Built rule-based conversational AI</li>
-        <li>• Intent matching using if-else rules</li>
-        <li>• Handles FAQs, greetings & fallback</li>
-      </ul>
+  <!-- ================= RULE BASED CHATBOT PROJECT ================= -->
+  <div class="bg-card p-6 rounded-xl border border-primary/30">
+    <h3 class="text-xl font-bold text-white">
+      Rule-Based Chatbot <span class="text-sm text-gray-400">(Project)</span>
+    </h3>
+    <p class="text-primary font-medium mb-3">Personal Project</p>
 
-      <div class="flex flex-wrap gap-2 mb-4">
-        <span class="badge">HTML</span>
-        <span class="badge">CSS</span>
-        <span class="badge">JavaScript</span>
-        <span class="badge">AI (Rule-Based)</span>
-      </div>
+    <ul class="text-gray-300 text-sm space-y-1 mb-4">
+      <li>• Designed and implemented a rule-based conversational chatbot</li>
+      <li>• Used predefined rules for intent recognition</li>
+      <li>• Handles greetings, skills, projects, and contact queries</li>
+      <li>• Lightweight frontend chatbot using JavaScript</li>
+    </ul>
 
-      <button onclick="openChatbot()" class="project-btn-live">
-        <i data-lucide="bot" class="w-4 h-4"></i> Live Demo
-      </button>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="badge">HTML</span>
+      <span class="badge">CSS</span>
+      <span class="badge">JavaScript</span>
+      <span class="badge">Rule-Based AI</span>
     </div>
 
+    <button onclick="openChatbot()" class="btn-live flex items-center gap-2">
+      <i data-lucide="bot" class="w-4 h-4"></i> Live Demo
+    </button>
   </div>
 </section>
 
@@ -101,7 +112,7 @@ body { background:#0f172a; color:#e2e8f0 }
   </div>
 </div>
 
-<!-- ================= CHATBOT SCRIPT ================= -->
+<!-- ================= SCRIPT ================= -->
 <script>
 lucide.createIcons();
 
@@ -114,24 +125,25 @@ function closeChatbot() {
 
 function sendMessage() {
   const input = document.getElementById("chatInput");
-  const text = input.value.trim();
-  if (!text) return;
+  const msg = input.value.trim();
+  if (!msg) return;
 
   const body = document.getElementById("chatBody");
+
   body.innerHTML += `
     <div class="text-right">
       <div class="inline-block bg-primary/20 text-primary px-3 py-2 rounded-lg">
-        ${text}
+        ${msg}
       </div>
     </div>`;
 
-  let reply = "Sorry, I didn't understand. Ask about skills, projects, or contact.";
+  let reply = "Sorry, I didn’t understand. Ask about skills, projects, or contact.";
 
-  const msg = text.toLowerCase();
-  if (msg.includes("hi") || msg.includes("hello")) reply = "Hello 👋 How can I help you?";
-  else if (msg.includes("skills")) reply = "Skills: Python, ML, ARIMA, SQL, Data Analysis.";
-  else if (msg.includes("projects")) reply = "Projects: Wind Power Forecasting, QR Generator, Calculator, Chatbot.";
-  else if (msg.includes("contact")) reply = "Email: kaushikguna50@gmail.com";
+  const m = msg.toLowerCase();
+  if (m.includes("hi") || m.includes("hello")) reply = "Hello 👋 How can I help you?";
+  else if (m.includes("skills")) reply = "Skills: Python, Machine Learning, ARIMA, SQL.";
+  else if (m.includes("projects")) reply = "Projects: Wind Power Forecasting, QR Generator, Calculator, Chatbot.";
+  else if (m.includes("contact")) reply = "Email: kaushikguna50@gmail.com";
 
   setTimeout(() => {
     body.innerHTML += `
