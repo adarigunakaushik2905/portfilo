@@ -1,816 +1,149 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Adari Guna Kaushik | AI Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-            },
-            colors: {
-              primary: '#2dd4bf', // teal-400
-              secondary: '#94a3b8', // slate-400
-              dark: '#0f172a', // slate-950
-              card: '#1e293b', // slate-800
-            }
-          }
-        }
-      }
-    </script>
-    <style>
-      body {
-        background-color: #0f172a;
-        color: #e2e8f0;
-      }
-      .gradient-text {
-        background: linear-gradient(to right, #2dd4bf, #60a5fa);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      /* Avatar Animation Styles */
-      .avatar-float {
-        animation: float 6s ease-in-out infinite;
-      }
-      @keyframes float {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-10px); }
-      }
-      .avatar-head, .avatar-body {
-        transition: transform 0.1s ease-out;
-        transform-style: preserve-3d;
-      }
-      .avatar-perspective {
-        perspective: 1000px;
-      }
-    </style>
-    <script type="importmap">
-    {
-      "imports": {
-        "react/": "https://esm.sh/react@^19.2.3/",
-        "react": "https://esm.sh/react@^19.2.3",
-        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-        "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Adari Guna Kaushik | AI Portfolio</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: { sans: ['Inter', 'sans-serif'] },
+      colors: {
+        primary: '#2dd4bf',
+        dark: '#0f172a',
+        card: '#1e293b'
       }
     }
-    </script>
+  }
+}
+</script>
+
+<style>
+body { background:#0f172a; color:#e2e8f0 }
+.badge { padding:4px 10px; background:#ffffff10; border-radius:999px; font-size:12px }
+.project-btn { padding:6px 14px; background:#ffffff10; border-radius:8px; display:flex; gap:6px; align-items:center }
+.project-btn-live { padding:6px 14px; background:#2dd4bf; color:#0f172a; border-radius:8px; display:flex; gap:6px; align-items:center; font-weight:600 }
+</style>
 </head>
-<body class="font-sans antialiased selection:bg-primary/30 selection:text-white">
 
-    <!-- Navbar -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex-shrink-0">
-                    <a href="#" class="text-2xl font-bold gradient-text">AGK</a>
-                </div>
-                
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#about" class="text-gray-300 hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">About</a>
-                        <a href="#skills" class="text-gray-300 hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Skills</a>
-                        <a href="#experience" class="text-gray-300 hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Experience</a>
-                        <a href="#projects" class="text-gray-300 hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Projects</a>
-                        <a href="#contact" class="text-gray-300 hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Contact</a>
-                    </div>
-                </div>
+<body class="font-sans">
 
-                <div class="hidden md:flex items-center space-x-4">
-                    <a href="https://github.com/adarigunakaushik2905" target="_blank" class="text-gray-400 hover:text-white transition-colors">
-                        <i data-lucide="github" class="w-5 h-5"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/guna-kaushik-adari-979559266" target="_blank" class="text-gray-400 hover:text-white transition-colors">
-                        <i data-lucide="linkedin" class="w-5 h-5"></i>
-                    </a>
-                </div>
+<!-- ================= HERO ================= -->
+<section class="min-h-screen flex items-center justify-center text-center px-6">
+  <div>
+    <h1 class="text-5xl font-bold mb-4">
+      Hi, I'm <span class="text-primary">Adari Guna Kaushik</span>
+    </h1>
+    <p class="text-gray-400 max-w-xl mx-auto">
+      AI Undergraduate | ML Enthusiast | Python Developer
+    </p>
+  </div>
+</section>
 
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white p-2">
-                        <i data-lucide="menu" class="w-6 h-6"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
+<!-- ================= PROJECTS ================= -->
+<section id="projects" class="py-20 max-w-7xl mx-auto px-6">
+  <h2 class="text-3xl font-bold text-white mb-10 text-center">Featured Projects</h2>
 
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-card border-b border-white/5">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#about" class="block text-gray-300 hover:text-primary px-3 py-2 rounded-md text-base font-medium">About</a>
-                <a href="#skills" class="block text-gray-300 hover:text-primary px-3 py-2 rounded-md text-base font-medium">Skills</a>
-                <a href="#experience" class="block text-gray-300 hover:text-primary px-3 py-2 rounded-md text-base font-medium">Experience</a>
-                <a href="#projects" class="block text-gray-300 hover:text-primary px-3 py-2 rounded-md text-base font-medium">Projects</a>
-                <a href="#contact" class="block text-gray-300 hover:text-primary px-3 py-2 rounded-md text-base font-medium">Contact</a>
-                
-                <div class="flex space-x-4 px-3 py-2 mt-4 border-t border-white/5 pt-4">
-                    <a href="https://github.com/adarigunakaushik2905" target="_blank" class="text-gray-400 hover:text-white">
-                        <i data-lucide="github" class="w-5 h-5"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/guna-kaushik-adari-979559266" target="_blank" class="text-gray-400 hover:text-white">
-                        <i data-lucide="linkedin" class="w-5 h-5"></i>
-                    </a>
-                    <a href="mailto:kaushikguna50@gmail.com" class="text-gray-400 hover:text-white">
-                        <i data-lucide="mail" class="w-5 h-5"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-    <!-- Hero Section -->
-    <section id="about" class="pt-24 pb-12 md:pt-32 md:pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
-        <div class="flex-1 text-center md:text-left">
-            <div class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-primary uppercase bg-primary/10 rounded-full">
-                AI Undergraduate
-            </div>
-            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
-                Hi, I'm <span class="text-primary">Adari Guna Kaushik</span>
-            </h1>
-            <h2 class="text-xl md:text-2xl text-gray-400 mb-6 font-light">
-                AI Undergraduate & ML Enthusiast
-            </h2>
-            <p class="text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto md:mx-0">
-                I am an enthusiastic Artificial Intelligence undergraduate with hands-on experience in Python, Machine Learning, and Time-Series Forecasting. I enjoy building end-to-end ML solutions including data preprocessing, feature engineering, model training, and evaluation. I am seeking an AI Intern role to work on real-world AI projects and improve my technical expertise.
-            </p>
-            
-            <div class="flex flex-col md:flex-row items-center gap-4 text-sm text-gray-400 mb-8 justify-center md:justify-start">
-                <div class="flex items-center gap-2">
-                    <i data-lucide="map-pin" class="w-4 h-4 text-primary"></i>
-                    <span>Visakhapatnam, Andhra Pradesh, India</span>
-                </div>
-                <div class="flex items-center gap-2">
-                    <i data-lucide="mail" class="w-4 h-4 text-primary"></i>
-                    <a href="mailto:kaushikguna50@gmail.com" class="hover:text-white transition-colors">kaushikguna50@gmail.com</a>
-                </div>
-                <div class="flex items-center gap-2">
-                    <i data-lucide="phone" class="w-4 h-4 text-primary"></i>
-                    <a href="tel:+919390339847" class="hover:text-white transition-colors">+91 93903 39847</a>
-                </div>
-            </div>
+    <!-- Rule-Based Chatbot -->
+    <div class="bg-card p-6 rounded-xl border border-white/10">
+      <h3 class="text-xl font-bold text-white mb-3">Rule-Based Chatbot</h3>
+      <ul class="text-gray-300 text-sm space-y-1 mb-4">
+        <li>• Built rule-based conversational AI</li>
+        <li>• Intent matching using if-else rules</li>
+        <li>• Handles FAQs, greetings & fallback</li>
+      </ul>
 
-            <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-                <a href="#contact" class="px-6 py-3 bg-primary text-dark font-semibold rounded-lg hover:bg-teal-300 transition-all hover:scale-105">
-                    Contact Me
-                </a>
-               <a href="Kaushik_ADARI.pdf" download class="inline-block">
-    <button class="px-6 py-3 border border-white/20 text-white font-medium rounded-lg hover:bg-white/5 transition-all flex items-center gap-2">
-        <i data-lucide="download" class="w-4 h-4"></i>
-        Download Resume
+      <div class="flex flex-wrap gap-2 mb-4">
+        <span class="badge">HTML</span>
+        <span class="badge">CSS</span>
+        <span class="badge">JavaScript</span>
+        <span class="badge">AI (Rule-Based)</span>
+      </div>
+
+      <button onclick="openChatbot()" class="project-btn-live">
+        <i data-lucide="bot" class="w-4 h-4"></i> Live Demo
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= CHATBOT ================= -->
+<div id="chatbot" class="fixed bottom-6 right-6 w-80 bg-card border border-white/10 rounded-xl shadow-2xl hidden flex flex-col z-50">
+  <div class="flex justify-between items-center px-4 py-3 border-b border-white/10">
+    <h3 class="text-white font-semibold">Rule-Based Chatbot</h3>
+    <button onclick="closeChatbot()" class="text-gray-400 hover:text-white">✕</button>
+  </div>
+
+  <div id="chatBody" class="flex-1 p-4 space-y-2 overflow-y-auto text-sm text-gray-300">
+    <div class="bg-white/5 p-2 rounded-lg">
+      🤖 Hi! Ask me about skills, projects, or contact.
+    </div>
+  </div>
+
+  <div class="p-3 border-t border-white/10 flex gap-2">
+    <input id="chatInput" type="text" placeholder="Type a message..."
+      class="flex-1 bg-white/5 text-white px-3 py-2 rounded-lg outline-none text-sm">
+    <button onclick="sendMessage()" class="bg-primary text-dark px-4 rounded-lg font-semibold">
+      Send
     </button>
-</a>
-
-            </div>
-        </div>
-        
-        <!-- Interactive Avatar -->
-        <div class="relative w-full max-w-xs md:max-w-sm mx-auto avatar-perspective">
-             <div class="w-64 h-64 md:w-80 md:h-80 relative z-10 mx-auto flex flex-col items-center justify-end avatar-float">
-                <!-- Avatar Head -->
-                <div class="avatar-head relative z-20 w-44 h-52 bg-slate-800 rounded-[2.5rem] border-2 border-primary/30 shadow-2xl flex flex-col items-center overflow-hidden">
-                    <!-- Hair -->
-                    <div class="absolute top-0 w-full h-12 bg-slate-900 rounded-b-xl border-b border-white/5"></div>
-                    
-                    <!-- Face -->
-                    <div class="mt-20 flex flex-col items-center w-full">
-                        <!-- Eyes Container -->
-                        <div class="flex gap-6">
-                            <!-- Left Eye -->
-                            <div class="eye w-12 h-12 bg-white rounded-full relative shadow-inner flex items-center justify-center overflow-hidden border-2 border-slate-300">
-                                <div class="pupil w-5 h-5 bg-dark rounded-full absolute">
-                                    <div class="w-1.5 h-1.5 bg-white rounded-full absolute top-1 right-1 opacity-80"></div>
-                                </div>
-                            </div>
-                            <!-- Right Eye -->
-                            <div class="eye w-12 h-12 bg-white rounded-full relative shadow-inner flex items-center justify-center overflow-hidden border-2 border-slate-300">
-                                <div class="pupil w-5 h-5 bg-dark rounded-full absolute">
-                                    <div class="w-1.5 h-1.5 bg-white rounded-full absolute top-1 right-1 opacity-80"></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Glasses Bridge (Optional aesthetic) -->
-                        <div class="w-6 h-1 bg-slate-600 -mt-7 mb-7 opacity-0"></div>
-
-                        <!-- Nose -->
-                        <div class="w-3 h-8 bg-black/20 rounded-full mt-3"></div>
-
-                        <!-- Mouth -->
-                        <div class="w-12 h-2 bg-slate-900/50 rounded-full mt-5"></div>
-                    </div>
-                </div>
-
-                <!-- Avatar Body/Shoulders -->
-                <div class="avatar-body relative z-10 -mt-6 w-60 h-28 bg-slate-800 rounded-t-[4rem] border-x-2 border-t-2 border-primary/20 shadow-xl flex justify-center overflow-hidden">
-                     <div class="mt-8 w-24 h-full bg-slate-900/30 rounded-t-full"></div>
-                     <!-- Collar -->
-                     <div class="absolute top-0 w-24 h-12 border-b-2 border-slate-900/50 rounded-b-full bg-slate-700"></div>
-                </div>
-            </div>
-            
-            <!-- Glow Effects -->
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-primary/10 rounded-full blur-3xl -z-0"></div>
-            <div class="absolute bottom-0 left-0 -ml-4 -mb-4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl -z-0"></div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-dark/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-white mb-4">Technical Proficiency</h2>
-                <div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Skill Card 1 -->
-                <div class="bg-card p-6 rounded-xl border border-white/5 hover:border-primary/30 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5 group">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="p-3 bg-primary/10 rounded-lg text-primary group-hover:bg-primary group-hover:text-dark transition-colors">
-                            <i data-lucide="code" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-white">Programming</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-white/5 text-gray-300 text-sm rounded-full border border-white/5">Python</span>
-                        <span class="px-3 py-1 bg-white/5 text-gray-300 text-sm rounded-full border border-white/5">C</span>
-                        <span class="px-3 py-1 bg-white/5 text-gray-300 text-sm rounded-full border border-white/5">JavaScript (Beginner)</span>
-                    </div>
-                </div>
-                <!-- Skill Card 2 -->
-                <div class="bg-card p-6 rounded-xl border border-white/5 hover:border-primary/30 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5 group">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="p-3 bg-primary/10 rounded-lg text-primary group-hover:bg-primary group-hover:text-dark transition-colors">
-                            <i data-lucide="brain" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-white">Machine Learning</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-white/5 text-gray-300 text-sm rounded-full border border-white/5">Linear Regression</span>
-                        <span class="px-3 py-1 bg-white/5 text-gray-300 text-sm rounded-full border border-white/5">Logistic Regression</span>
-                        <span class="px-3 py-1 bg-white/5 text-gray-300 text-sm rounded-full border border-white/5">Decision Trees</span>
-                        <span class="px-3 py-1 bg-white/5 text-gray-300 text-sm rounded-full border border-white/5">Random Forest</span>
-                        <span class="px-3 py-1 bg-white/5 text-gray-300 text-sm rounded-full border border-white/5">ARIMA</span>
-                    </div>
-                </div>
-                <!-- Skill Card 3 -->
-                <div class="bg-card p-6 rounded-xl border border-white/5 hover:border-primary/30 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5 group">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="p-3 bg-primary/10 rounded-lg text-primary group-hover:bg-primary group-hover:text-dark transition-colors">
-                            <i data-lucide="cpu" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-white">Deep Learning</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-white/5 text-gray-300 text-sm rounded-full border border-white/5">TensorFlow (Beginner)</span>
-                        <span class="px-3 py-1 bg-white/5 text-gray-300 text-sm rounded-full border border-white/5">PyTorch (Beginner)</span>
-                    </div>
-                </div>
-                <!-- Skill Card 4 -->
-                <div class="bg-card p-6 rounded-xl border border-white/5 hover:border-primary/30 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5 group">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="p-3 bg-primary/10 rounded-lg text-primary group-hover:bg-primary group-hover:text-dark transition-colors">
-                            <i data-lucide="layout" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-white">Data Tools</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-white/5 text-gray-300 text-sm rounded-full border border-white/5">Pandas</span>
-                        <span class="px-3 py-1 bg-white/5 text-gray-300 text-sm rounded-full border border-white/5">NumPy</span>
-                        <span class="px-3 py-1 bg-white/5 text-gray-300 text-sm rounded-full border border-white/5">Matplotlib</span>
-                        <span class="px-3 py-1 bg-white/5 text-gray-300 text-sm rounded-full border border-white/5">Seaborn</span>
-                    </div>
-                </div>
-                 <!-- Skill Card 5 -->
-                 <div class="bg-card p-6 rounded-xl border border-white/5 hover:border-primary/30 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5 group">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="p-3 bg-primary/10 rounded-lg text-primary group-hover:bg-primary group-hover:text-dark transition-colors">
-                            <i data-lucide="database" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-white">Databases</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-white/5 text-gray-300 text-sm rounded-full border border-white/5">SQL (MySQL, Oracle)</span>
-                    </div>
-                </div>
-                 <!-- Skill Card 6 -->
-                 <div class="bg-card p-6 rounded-xl border border-white/5 hover:border-primary/30 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5 group">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="p-3 bg-primary/10 rounded-lg text-primary group-hover:bg-primary group-hover:text-dark transition-colors">
-                            <i data-lucide="terminal" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-white">Tools & OS</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-white/5 text-gray-300 text-sm rounded-full border border-white/5">Git</span>
-                        <span class="px-3 py-1 bg-white/5 text-gray-300 text-sm rounded-full border border-white/5">GitHub</span>
-                        <span class="px-3 py-1 bg-white/5 text-gray-300 text-sm rounded-full border border-white/5">Jupyter Notebook</span>
-                        <span class="px-3 py-1 bg-white/5 text-gray-300 text-sm rounded-full border border-white/5">Google Colab</span>
-                        <span class="px-3 py-1 bg-white/5 text-gray-300 text-sm rounded-full border border-white/5">VS Code</span>
-                        <span class="px-3 py-1 bg-white/5 text-gray-300 text-sm rounded-full border border-white/5">Linux / Ubuntu</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="py-20 relative overflow-hidden">
-        <div class="absolute top-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <!-- Experience -->
-            <div class="mb-20">
-                <div class="flex items-center gap-4 mb-10">
-                    <h2 class="text-3xl font-bold text-white">Experience</h2>
-                    <div class="h-px bg-white/10 flex-grow"></div>
-                </div>
-                
-                <div class="space-y-8">
-                    <div class="relative pl-8 md:pl-0">
-                        <div class="md:flex gap-8 items-start group">
-                            <div class="hidden md:flex flex-col items-center mt-1">
-                                <div class="w-3 h-3 rounded-full bg-primary ring-4 ring-primary/20 group-hover:ring-primary/40 transition-all"></div>
-                                <div class="w-px h-full bg-white/10 my-2"></div>
-                            </div>
-                            <div class="flex-1 bg-card p-6 rounded-xl border border-white/5 hover:border-primary/30 transition-all">
-                                <div class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                                    <div>
-                                        <h3 class="text-xl font-bold text-white">AI & Data Analytics Intern</h3>
-                                        <div class="flex items-center gap-2 text-primary font-medium mt-1">
-                                            <i data-lucide="briefcase" class="w-4 h-4"></i>
-                                            <span>Edunet Foundation (AICTE & Shell)</span>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-center gap-2 text-sm text-gray-400 bg-white/5 px-3 py-1 rounded-full w-fit">
-                                        <i data-lucide="calendar" class="w-3 h-3"></i>
-                                        <span>April 2025</span>
-                                    </div>
-                                </div>
-                                <ul class="space-y-2">
-                                    <li class="flex items-start gap-2 text-gray-300">
-                                        <i data-lucide="chevron-right" class="w-4 h-4 text-primary mt-1 flex-shrink-0"></i>
-                                        <span>Built end-to-end ML pipelines</span>
-                                    </li>
-                                    <li class="flex items-start gap-2 text-gray-300">
-                                        <i data-lucide="chevron-right" class="w-4 h-4 text-primary mt-1 flex-shrink-0"></i>
-                                        <span>Developed regression and ARIMA models with 15% accuracy improvement</span>
-                                    </li>
-                                    <li class="flex items-start gap-2 text-gray-300">
-                                        <i data-lucide="chevron-right" class="w-4 h-4 text-primary mt-1 flex-shrink-0"></i>
-                                        <span>Performed EDA and visualizations</span>
-                                    </li>
-                                    <li class="flex items-start gap-2 text-gray-300">
-                                        <i data-lucide="chevron-right" class="w-4 h-4 text-primary mt-1 flex-shrink-0"></i>
-                                        <span>Used Git for reproducible workflows</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Rule-Based Chatbot Project -->
-<div class="group bg-card rounded-xl overflow-hidden border border-white/5 hover:border-primary/50 transition-all hover:shadow-xl hover:shadow-primary/5 flex flex-col">
-    <div class="p-6 flex-1 flex flex-col">
-        <div class="flex justify-between items-start mb-4">
-            <h3 class="text-xl font-bold text-white group-hover:text-primary transition-colors">
-                Rule-Based Chatbot
-            </h3>
-            <i data-lucide="message-circle" class="w-5 h-5 text-gray-500"></i>
-        </div>
-
-        <ul class="space-y-2 mb-6 text-sm text-gray-300">
-            <li>• Designed a rule-based conversational chatbot</li>
-            <li>• Implemented intent matching using predefined rules</li>
-            <li>• Handles greetings, FAQs, and fallback responses</li>
-            <li>• Lightweight frontend chatbot using JavaScript</li>
-        </ul>
-
-        <div class="mt-auto pt-4 border-t border-white/5">
-            <div class="flex flex-wrap gap-2 mb-4">
-                <span class="badge">HTML</span>
-                <span class="badge">CSS</span>
-                <span class="badge">JavaScript</span>
-                <span class="badge">Rule-Based AI</span>
-            </div>
-
-            <div class="flex gap-3">
-                <button onclick="openChatbot()"
-                        class="project-btn-live">
-                    <i data-lucide="bot" class="w-4 h-4"></i> Live Demo
-                </button>
-            </div>
-        </div>
-    </div>
+  </div>
 </div>
 
-<div class="relative pl-8 md:pl-0">
-    <div class="md:flex gap-8 items-start group">
-        <div class="hidden md:flex flex-col items-center mt-1">
-            <div class="w-3 h-3 rounded-full bg-primary ring-4 ring-primary/20 group-hover:ring-primary/40 transition-all"></div>
-            <div class="w-px h-full bg-white/10 my-2"></div>
-        </div>
+<!-- ================= CHATBOT SCRIPT ================= -->
+<script>
+lucide.createIcons();
 
-        <div class="flex-1 bg-card p-6 rounded-xl border border-white/5 hover:border-primary/30 transition-all">
-            <div class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                <div>
-                    <h3 class="text-xl font-bold text-white">
-                        Power BI Intern <span class="text-sm text-gray-400">(Short-Term)</span>
-                    </h3>
-                    <div class="flex items-center gap-2 text-primary font-medium mt-1">
-                        <i data-lucide="briefcase" class="w-4 h-4"></i>
-                        <span>uLearn</span>
-                    </div>
-                </div>
+function openChatbot() {
+  document.getElementById("chatbot").classList.remove("hidden");
+}
+function closeChatbot() {
+  document.getElementById("chatbot").classList.add("hidden");
+}
 
-                <div class="flex items-center gap-2 text-sm text-gray-400 bg-white/5 px-3 py-1 rounded-full w-fit">
-                    <i data-lucide="calendar" class="w-3 h-3"></i>
-                    <span>2025</span>
-                </div>
-            </div>
+function sendMessage() {
+  const input = document.getElementById("chatInput");
+  const text = input.value.trim();
+  if (!text) return;
 
-            <ul class="space-y-2">
-                <li class="flex items-start gap-2 text-gray-300">
-                    <i data-lucide="chevron-right" class="w-4 h-4 text-primary mt-1 flex-shrink-0"></i>
-                    <span>Worked on data visualization and dashboard creation using Power BI</span>
-                </li>
-                <li class="flex items-start gap-2 text-gray-300">
-                    <i data-lucide="chevron-right" class="w-4 h-4 text-primary mt-1 flex-shrink-0"></i>
-                    <span>Designed interactive reports with slicers, filters, and KPIs</span>
-                </li>
-                <li class="flex items-start gap-2 text-gray-300">
-                    <i data-lucide="chevron-right" class="w-4 h-4 text-primary mt-1 flex-shrink-0"></i>
-                    <span>Performed basic data cleaning and transformation</span>
-                </li>
-                <li class="flex items-start gap-2 text-gray-300">
-                    <i data-lucide="chevron-right" class="w-4 h-4 text-primary mt-1 flex-shrink-0"></i>
-                    <span>Gained hands-on exposure to business data analysis workflows</span>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
+  const body = document.getElementById("chatBody");
+  body.innerHTML += `
+    <div class="text-right">
+      <div class="inline-block bg-primary/20 text-primary px-3 py-2 rounded-lg">
+        ${text}
+      </div>
+    </div>`;
 
+  let reply = "Sorry, I didn't understand. Ask about skills, projects, or contact.";
 
-<div id="projects">
-    <div class="flex items-center gap-4 mb-10">
-        <h2 class="text-3xl font-bold text-white">Featured Projects</h2>
-        <div class="h-px bg-white/10 flex-grow"></div>
-    </div>
+  const msg = text.toLowerCase();
+  if (msg.includes("hi") || msg.includes("hello")) reply = "Hello 👋 How can I help you?";
+  else if (msg.includes("skills")) reply = "Skills: Python, ML, ARIMA, SQL, Data Analysis.";
+  else if (msg.includes("projects")) reply = "Projects: Wind Power Forecasting, QR Generator, Calculator, Chatbot.";
+  else if (msg.includes("contact")) reply = "Email: kaushikguna50@gmail.com";
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  setTimeout(() => {
+    body.innerHTML += `
+      <div class="bg-white/5 p-2 rounded-lg">
+        🤖 ${reply}
+      </div>`;
+    body.scrollTop = body.scrollHeight;
+  }, 300);
 
-        <div class="group bg-card rounded-xl overflow-hidden border border-white/5 hover:border-primary/50 transition-all hover:shadow-xl hover:shadow-primary/5 flex flex-col">
-            <div class="p-6 flex-1 flex flex-col">
-                <div class="flex justify-between items-start mb-4">
-                    <a href="https://github.com/adarigunakaushik2905/wind-power-forecasting" target="_blank">
-                        <h3 class="text-xl font-bold text-white group-hover:text-primary transition-colors">
-                            Wind Power Generation Forecasting
-                        </h3>
-                    </a>
-                    <a href="https://github.com/adarigunakaushik2905/wind-power-forecasting" target="_blank">
-                        <i data-lucide="external-link" class="w-5 h-5 text-gray-500 hover:text-white transition"></i>
-                    </a>
-                </div>
+  input.value = "";
+}
+</script>
 
-                <div class="inline-block px-3 py-1 bg-emerald-500/10 text-emerald-400 text-sm font-medium rounded-lg mb-4 border border-emerald-500/20">
-                    Achieved RMSE of 12.3 MW
-                </div>
-
-                <ul class="space-y-2 mb-6 text-sm text-gray-300">
-                    <li>• Analyzed 3+ years of wind power data</li>
-                    <li>• Built ARIMA forecasting model</li>
-                    <li>• Seasonal decomposition & trend analysis</li>
-                </ul>
-
-                <div class="mt-auto pt-4 border-t border-white/5">
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="badge">Python</span>
-                        <span class="badge">ARIMA</span>
-                        <span class="badge">Pandas</span>
-                        <span class="badge">Matplotlib</span>
-                    </div>
-
-                    <div class="flex gap-3">
-                        <a href="https://github.com/adarigunakaushik2905/wind-power-forecasting" target="_blank"
-                           class="project-btn">
-                            <i data-lucide="github" class="w-4 h-4"></i> Code
-                        </a>
-                        <a href="#" target="_blank"
-                           class="project-btn-live">
-                            <i data-lucide="external-link" class="w-4 h-4"></i> Live
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="group bg-card rounded-xl overflow-hidden border border-white/5 hover:border-primary/50 transition-all hover:shadow-xl hover:shadow-primary/5 flex flex-col">
-            <div class="p-6 flex-1 flex flex-col">
-                <div class="flex justify-between items-start mb-4">
-                    <a href="https://github.com/adarigunakaushik2905/qr-code-generator" target="_blank">
-                        <h3 class="text-xl font-bold text-white group-hover:text-primary transition-colors">
-                            QR Code Generator
-                        </h3>
-                    </a>
-                    <a href="https://github.com/adarigunakaushik2905/qr-code-generator" target="_blank">
-                        <i data-lucide="external-link" class="w-5 h-5 text-gray-500 hover:text-white transition"></i>
-                    </a>
-                </div>
-
-                <ul class="space-y-2 mb-6 text-sm text-gray-300">
-                    <li>• Python-based QR generation tool</li>
-                    <li>• Supports text & URL input</li>
-                    <li>• Clean and efficient code</li>
-                </ul>
-
-                <div class="mt-auto pt-4 border-t border-white/5">
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="badge">Python</span>
-                        <span class="badge">QRCode</span>
-                        <span class="badge">Pillow</span>
-                    </div>
-
-                    <div class="flex gap-3">
-                        <a href="https://github.com/adarigunakaushik2905/qr-code-generator" target="_blank"
-                           class="project-btn">
-                            <i data-lucide="github" class="w-4 h-4"></i> Code
-                        </a>
-                        <a href="https://adarigunakaushik2905.github.io/QR-CODE-GENERATOR/" target="_blank"
-                           class="project-btn-live">
-                            <i data-lucide="external-link" class="w-4 h-4"></i> Live
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="group bg-card rounded-xl overflow-hidden border border-white/5 hover:border-primary/50 transition-all hover:shadow-xl hover:shadow-primary/5 flex flex-col">
-            <div class="p-6 flex-1 flex flex-col">
-                <div class="flex justify-between items-start mb-4">
-                    <a href="https://github.com/adarigunakaushik2905/basic-calculator" target="_blank">
-                        <h3 class="text-xl font-bold text-white group-hover:text-primary transition-colors">
-                            Basic Calculator
-                        </h3>
-                    </a>
-                    <a href="https://github.com/adarigunakaushik2905/basic-calculator" target="_blank">
-                        <i data-lucide="external-link" class="w-5 h-5 text-gray-500 hover:text-white transition"></i>
-                    </a>
-                </div>
-
-                <ul class="space-y-2 mb-6 text-sm text-gray-300">
-                    <li>• Web-based calculator</li>
-                    <li>• Arithmetic operations & validation</li>
-                    <li>• Responsive UI</li>
-                </ul>
-
-                <div class="mt-auto pt-4 border-t border-white/5">
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="badge">HTML</span>
-                        <span class="badge">CSS</span>
-                        <span class="badge">JavaScript</span>
-                    </div>
-
-                    <div class="flex gap-3">
-                        <a href="https://github.com/adarigunakaushik2905/basic-calculator" target="_blank"
-                           class="project-btn">
-                            <i data-lucide="github" class="w-4 h-4"></i> Code
-                        </a>
-                        <a href="#" target="_blank"
-                           class="project-btn-live">
-                            <i data-lucide="external-link" class="w-4 h-4"></i> Live
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-    <section id="education" class="py-20 bg-dark/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-white mb-4">Education</h2>
-                <div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-card p-6 rounded-xl border border-white/5 text-center hover:bg-white/5 transition-colors relative overflow-hidden group">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary/0 via-primary to-primary/0 scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 text-primary group-hover:scale-110 transition-transform">
-                        <i data-lucide="graduation-cap" class="w-8 h-8"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">B.Sc Artificial Intelligence</h3>
-                    <p class="text-gray-400 mb-4">Aditya Degree College</p>
-                    <div class="flex items-center justify-center gap-4 text-sm">
-                        <span class="px-3 py-1 bg-white/5 rounded-full text-gray-300 border border-white/5">2023 – 2026</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary rounded-full font-semibold">SGPA: 7.50</span>
-                    </div>
-                </div>
-                 <div class="bg-card p-6 rounded-xl border border-white/5 text-center hover:bg-white/5 transition-colors relative overflow-hidden group">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary/0 via-primary to-primary/0 scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 text-primary group-hover:scale-110 transition-transform">
-                        <i data-lucide="graduation-cap" class="w-8 h-8"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Intermediate (MPC)</h3>
-                    <p class="text-gray-400 mb-4">Sri Chaitanya Junior College</p>
-                    <div class="flex items-center justify-center gap-4 text-sm">
-                        <span class="px-3 py-1 bg-white/5 rounded-full text-gray-300 border border-white/5">2021 – 2023</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary rounded-full font-semibold">71.6%</span>
-                    </div>
-                </div>
-                 <div class="bg-card p-6 rounded-xl border border-white/5 text-center hover:bg-white/5 transition-colors relative overflow-hidden group">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary/0 via-primary to-primary/0 scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 text-primary group-hover:scale-110 transition-transform">
-                        <i data-lucide="graduation-cap" class="w-8 h-8"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">SSC</h3>
-                    <p class="text-gray-400 mb-4">Dr. KKR Gowtham High School</p>
-                    <div class="flex items-center justify-center gap-4 text-sm">
-                        <span class="px-3 py-1 bg-white/5 rounded-full text-gray-300 border border-white/5">2020 – 2021</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary rounded-full font-semibold">GPA: 9.5</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                
-                <div>
-                    <div class="flex items-center gap-3 mb-8">
-                        <div class="p-2 bg-yellow-500/10 rounded-lg text-yellow-500">
-                            <i data-lucide="award" class="w-6 h-6"></i>
-                        </div>
-                        <h2 class="text-2xl font-bold text-white">Achievements</h2>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-4 bg-card p-4 rounded-lg border border-white/5 hover:border-yellow-500/30 transition-colors">
-                            <div class="flex-shrink-0 w-10 h-10 bg-yellow-500/10 rounded-full flex items-center justify-center text-yellow-500">
-                                <i data-lucide="star" class="w-4 h-4"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-semibold text-white">First Prize – RPA Workshop</h3>
-                                <p class="text-sm text-gray-400">2025</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-4 bg-card p-4 rounded-lg border border-white/5 hover:border-yellow-500/30 transition-colors">
-                            <div class="flex-shrink-0 w-10 h-10 bg-yellow-500/10 rounded-full flex items-center justify-center text-yellow-500">
-                                <i data-lucide="star" class="w-4 h-4"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-semibold text-white">Participant – Vismayah Data Science Competition</h3>
-                                <p class="text-sm text-gray-400">2025</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-4 bg-card p-4 rounded-lg border border-white/5 hover:border-yellow-500/30 transition-colors">
-                            <div class="flex-shrink-0 w-10 h-10 bg-yellow-500/10 rounded-full flex items-center justify-center text-yellow-500">
-                                <i data-lucide="star" class="w-4 h-4"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-semibold text-white">Participated in DevOps & Web Technology Hackathons</h3>
-                                <p class="text-sm text-gray-400">2025</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="flex items-center gap-3 mb-8">
-                        <div class="p-2 bg-purple-500/10 rounded-lg text-purple-400">
-                            <i data-lucide="users" class="w-6 h-6"></i>
-                        </div>
-                        <h2 class="text-2xl font-bold text-white">Leadership</h2>
-                    </div>
-                    <div class="space-y-6">
-                        <div class="bg-card p-6 rounded-lg border border-white/5 hover:border-purple-500/30 transition-colors">
-                            <h3 class="text-lg font-bold text-white mb-1">Event Organizer</h3>
-                            <p class="text-purple-400 text-sm mb-4">AI & Data Science Club, Aditya Degree College</p>
-                            <ul class="space-y-2">
-                                <li class="text-gray-300 text-sm flex items-start gap-2">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-purple-500/50 mt-1.5 flex-shrink-0"></span>
-                                    Organized “AI UNPLUGGED” with 80+ participants
-                                </li>
-                                <li class="text-gray-300 text-sm flex items-start gap-2">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-purple-500/50 mt-1.5 flex-shrink-0"></span>
-                                    Led “VISMAYAH” data science event
-                                </li>
-                                <li class="text-gray-300 text-sm flex items-start gap-2">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-purple-500/50 mt-1.5 flex-shrink-0"></span>
-                                    Delivered sessions on Python, EDA, and ML basics
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact" class="bg-black/20 border-t border-white/5 py-12">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-bold text-white mb-6">Let's Connect</h2>
-            <p class="text-gray-400 mb-8 max-w-xl mx-auto">
-                I am currently seeking an AI Intern role to leverage my skills in real-world projects. 
-                Feel free to reach out for opportunities or collaborations.
-            </p>
-
-            <div class="flex flex-wrap justify-center gap-6 mb-12">
-                <a href="mailto:kaushikguna50@gmail.com" class="flex items-center gap-2 px-6 py-3 bg-white/5 rounded-lg text-white hover:bg-primary hover:text-dark transition-all">
-                    <i data-lucide="mail" class="w-5 h-5"></i>
-                    <span>Email Me</span>
-                </a>
-                <a href="https://linkedin.com/in/guna-kaushik-adari-979559266" target="_blank" class="flex items-center gap-2 px-6 py-3 bg-[#0077b5]/10 text-[#0077b5] rounded-lg border border-[#0077b5]/20 hover:bg-[#0077b5] hover:text-white transition-all">
-                    <i data-lucide="linkedin" class="w-5 h-5"></i>
-                    <span>LinkedIn</span>
-                </a>
-                <a href="https://github.com/adarigunakaushik2905" target="_blank" class="flex items-center gap-2 px-6 py-3 bg-white/5 rounded-lg text-white hover:bg-white hover:text-dark transition-all">
-                    <i data-lucide="github" class="w-5 h-5"></i>
-                    <span>GitHub</span>
-                </a>
-            </div>
-
-            <div class="text-gray-500 text-sm">
-                <p>&copy; 2025 Adari Guna Kaushik. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        lucide.createIcons();
-
-        
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-
-        const nav = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                nav.classList.add('bg-dark/90', 'backdrop-blur-md', 'border-b', 'border-white/5', 'shadow-lg');
-                nav.classList.remove('bg-transparent');
-            } else {
-                nav.classList.remove('bg-dark/90', 'backdrop-blur-md', 'border-b', 'border-white/5', 'shadow-lg');
-                nav.classList.add('bg-transparent');
-            }
-        });
-
-        const mobileLinks = menu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
-            });
-        });
-
-        const pupils = document.querySelectorAll('.pupil');
-        const avatarHead = document.querySelector('.avatar-head');
-        const avatarBody = document.querySelector('.avatar-body');
-        
-        window.addEventListener('mousemove', (e) => {
-            pupils.forEach(pupil => {
-                const eye = pupil.parentElement;
-                const rect = eye.getBoundingClientRect();
-                const eyeCenterX = rect.left + rect.width / 2;
-                const eyeCenterY = rect.top + rect.height / 2;
-                const angle = Math.atan2(e.clientY - eyeCenterY, e.clientX - eyeCenterX);
-                const maxRadius = 8;
-                const distance = Math.min(Math.hypot(e.clientX - eyeCenterX, e.clientY - eyeCenterY) / 10, maxRadius);
-                const pupilX = Math.cos(angle) * distance;
-                const pupilY = Math.sin(angle) * distance;
-                pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
-            });
-            
-            if (avatarHead) {
-                const xLimit = 15; 
-                const yLimit = 15;
-                
-                const xRatio = (e.clientX - window.innerWidth / 2) / (window.innerWidth / 2);
-                const yRatio = (e.clientY - window.innerHeight / 2) / (window.innerHeight / 2);
-            
-                const rotateY = xRatio * xLimit * -1; 
-                const rotateX = yRatio * yLimit * -1; 
-                
-                avatarHead.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-                
-                if (avatarBody) {
-                    avatarBody.style.transform = `rotateX(${rotateX/3}deg) rotateY(${rotateY/3}deg)`;
-                }
-            }
-        });
-    </script>
 </body>
 </html>
